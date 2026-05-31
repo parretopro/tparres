@@ -149,17 +149,26 @@ Forzar a GitHub Copilot a usar plantillas completas asegura consistencia en tu r
 | **Punto de Entrada** | `if __name__ == '__main__':` | Invocación `main "$@"` al final | Llamada a `Main` tras la declaración |
 | **Control de Interrupción** | Captura `KeyboardInterrupt` | Heredado del sistema (o via `trap`) | Captura general en bloque `catch` |
 
+## 8. Estructura de Directorios Estandar (src-layout)
+Al inicializar o estructurar nuevos proyectos, impon estrictamente esta jerarquia y ubica los ficheros donde corresponda:
+- `.github/`: Reglas del workspace (Copilot) y CI/CD.
+- `config/`: Ficheros de configuracion estaticos (.yaml, .json, .ini).
+- `docs/`: Documentacion tecnica y diagramas.
+- `scripts/`: Scripts auxiliares de operacion (Bash, PowerShell).
+- `src/`: Codigo fuente principal de la aplicacion (logica de negocio).
+- `tests/`: Pruebas unitarias y de integracion.
+- Raiz del proyecto: `.env.example`, `.gitignore` (excluyendo obligatoriamente /logs, /out, .env), `CHANGELOG_proyecto.md`, `README_proyecto.md` y dependencias (ej. `requirements.txt`).
 
-## 8. Validacion minima obligatoria
+## 9. Validacion minima obligatoria
 - Tras editar, ejecutar validacion minima relacionada (lint, sintaxis o test puntual).
 - Si no se puede validar, explicar por que y que queda pendiente.
 
-## 9. Formato de entrega
+## 10. Formato de entrega
 - Resumen corto: que cambio y por que.
 - Riesgos y compatibilidad.
 - Siguiente paso recomendado.
 
-## 10. Automatizacion recomendada
+## 11. Automatizacion recomendada
 - Integrar `markdownlint` en CI para validar estructura y consistencia del archivo de instrucciones globales.
 
 Antes de finalizar cada respuesta tecnica, incluye una sugerencia breve de optimizacion o seguridad.
