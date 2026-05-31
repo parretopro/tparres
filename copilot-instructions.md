@@ -23,7 +23,7 @@ Ejemplos de backup:
 - Aplica cambios minimos, sin refactorizar partes no relacionadas.
 - Conserva comentarios existentes que sigan siendo correctos.
 - No elimines comentarios funcionales sin justificacion.
-- Si detectas cambios inesperados no solicitados en archivos relevantes, detente y avisa.
+- Si al aplicar una edición el diff resultante incluye líneas modificadas fuera del bloque directamente relacionado con la solicitud del usuario, detente y reporta las diferencias antes de continuar.
 - Usa nombres claros, trazabilidad en logs y manejo explicito de errores en limites de sistema.
 
 ## 4. Ciclo de vida y documentacion (Autor: Tomas Parres Murcia)
@@ -40,6 +40,7 @@ Ejemplos de backup:
 - Python: PEP 8, type hints en funciones publicas, docstrings utiles, y manejo de errores en I/O, red, DB o CLI.
 - Bash: usar `set -euo pipefail` cuando aplique; funciones modulares, variables entrecomilladas, compatible con `shellcheck`.
 - PowerShell 7+: usar `$ErrorActionPreference = "Stop"` en scripts nuevos o cambios criticos.
+- Otros lenguajes: aplicar convenciones idiomaticas del lenguaje, incluir cabecera de autoria como comentario, y manejo explicito de errores. Indicar que no existe plantilla obligatoria definida.
 
 ## 7. Plantillas Base Obligatorias (Scaffolding)
 Al crear o refactorizar un script desde cero, DEBES implementar estrictamente la siguiente cabecera y estructura base según el lenguaje. Rellena dinámicamente las fechas, nombres y versiones.
@@ -170,5 +171,7 @@ Al inicializar o estructurar nuevos proyectos, impon estrictamente esta jerarqui
 
 ## 11. Automatizacion recomendada
 - Integrar `markdownlint` en CI para validar estructura y consistencia del archivo de instrucciones globales.
+
+Para cambios triviales (corrección de typos, ajustes de una línea), omitir secciones 4, 5 y 11 salvo que el usuario lo solicite.
 
 Antes de finalizar cada respuesta tecnica, incluye una sugerencia breve de optimizacion o seguridad.
